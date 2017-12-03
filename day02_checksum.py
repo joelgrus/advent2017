@@ -4,9 +4,8 @@ http://adventofcode.com/2017/day/2
 from typing import List
 
 def to_rows(ss: str) -> List[List[int]]:
-    rows = ss.split("\n")
-    rows = [[int(cell) for cell in row.split()] for row in rows]
-    return rows
+    return [[int(cell) for cell in row.split()]
+            for row in ss.split("\n")]
 
 
 def checksum(ss: str) -> int:
