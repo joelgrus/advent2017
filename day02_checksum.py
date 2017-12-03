@@ -3,24 +3,24 @@ http://adventofcode.com/2017/day/2
 """
 from typing import List
 
-def to_rows(ss: str) -> List[List[int]]:
+def to_rows(spreadsheet: str) -> List[List[int]]:
     return [[int(cell) for cell in row.split()]
-            for row in ss.split("\n")]
+            for row in spreadsheet.split("\n")]
 
 
-def checksum(ss: str) -> int:
+def checksum(spreadsheet: str) -> int:
     """
     for each row, find the max - min, and add those up
     """
-    rows = to_rows(ss)
+    rows = to_rows(spreadsheet)
 
     return sum(max(row) - min(row) for row in rows)
 
-test_ss = """5 1 9 5
+TEST_SS = """5 1 9 5
 7 5 3
 2 4 6 8"""
 
-assert checksum(test_ss) == 18
+assert checksum(TEST_SS) == 18
 
 FIRST_INPUT = """1640	590	93	958	73	1263	1405	1363	737	712	1501	390	68	1554	959	79
 4209	128	131	2379	2568	2784	2133	145	3618	1274	3875	158	1506	3455	1621	3799
@@ -59,15 +59,15 @@ assert row_dividend([9, 4, 7, 3]) == 3
 assert row_dividend([3, 8, 6, 5]) == 2
 
 
-def checksum_divisible(ss: str) -> int:
-    rows = to_rows(ss)
+def checksum_divisible(spreadsheet: str) -> int:
+    rows = to_rows(spreadsheet)
     return sum(row_dividend(row) for row in rows)
 
-test2 = """5 9 2 8
+TEST2 = """5 9 2 8
 9 4 7 3
 3 8 6 5"""
 
-assert checksum_divisible(test2) == 9
+assert checksum_divisible(TEST2) == 9
 
 if __name__ == "__main__":
     print(checksum(FIRST_INPUT))

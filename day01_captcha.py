@@ -2,13 +2,13 @@
 http://adventofcode.com/2017/day/1
 """
 
-def sum_matching_digits(s: str) -> int:
+def sum_matching_digits(inputs: str) -> int:
     total = 0
-    for curr_val, next_val in zip(s, s[1:]):
+    for curr_val, next_val in zip(inputs, inputs[1:]):
         if curr_val == next_val:
             total += int(curr_val)
-    if s[0] == s[-1]:
-        total += int(s[0])
+    if inputs[0] == inputs[-1]:
+        total += int(inputs[0])
 
     return total
 
@@ -22,12 +22,12 @@ FIRST_INPUT = """367436765224262147416876392821832169781285655941123648172835986
 
 # part 2
 
-def sum_matching_digits_halfway(s: str) -> int:
-    length = len(s)
+def sum_matching_digits_halfway(inputs: str) -> int:
+    length = len(inputs)
     halfway = length // 2
 
     total = 0
-    for curr_val, next_val in zip(s, s[halfway:]):
+    for curr_val, next_val in zip(inputs, inputs[halfway:]):
         if curr_val == next_val:
             total += 2 * int(curr_val)
 
