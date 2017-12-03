@@ -1,7 +1,7 @@
 """
 http://adventofcode.com/2017/day/3
 """
-from typing import Tuple, Dict, Iterator
+from typing import Tuple, Dict, Iterator  # pylint: disable=unused-import
 import math
 from collections import defaultdict
 import itertools
@@ -87,7 +87,7 @@ def get_neighbors(loc: Tuple[int, int]) -> Iterator[Tuple[int, int]]:
     yield x + 1, y + 1
 
 def first_value_larger_than(num: int) -> int:
-    grid: Dict[Tuple[int, int], int] = defaultdict(int)
+    grid = defaultdict(int)  # type: Dict[Tuple[int, int], int]
 
     grid[(0, 0)] = 1
 
