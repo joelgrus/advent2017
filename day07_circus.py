@@ -74,7 +74,7 @@ def balance_towers(towers: List[Tower]):
             all(is_balanced for _, is_balanced in subchecks.values())):
             print("tower", tower)
             # this is where the problem is
-            for name, (total_weight, is_balanced) in subchecks.items():
+            for name, (total_weight, _) in subchecks.items():
                 above_tower = lookups[name]
                 print(name, total_weight, above_tower.weight)
 
