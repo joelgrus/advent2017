@@ -42,6 +42,16 @@ def condense(counts: Dict[str, int]) -> bool:
         ('nw', 'ne', 'n')]:
         condensed = condensed or _condense(counts, m1, m2, p)
 
+    # oops, I screwed this up here, I didn't return a value!
+    # If I'd bothered running mypy, it would have told me.
+    # Luckily, it didn't matter, for the following reason:
+    # it's always the case that you only need to run
+    #       eliminate -> condense -> eliminate
+    # to get down to two adjacent directions, and even without the
+    # return statement it was enough to make that happen.
+    # Next time I'll run mypy!
+
+
 def distance(counts: Dict[str, int]) -> int:
     counts = copy(counts)
 
